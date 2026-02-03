@@ -1,9 +1,9 @@
 # Representation graphique de fonctions.
 
-> Programme python qui trace un courbe qui suit les point d'une fonction sur un graphique crée avec la bibliothèque Turtle 
+> Programme python qui trace un courbe qui suit les point de quatre fonctions sur un graphique crée avec la bibliothèque Turtle 
 ---
 ## Fonctionnement
-> Pour changer la fonction que le programme execute, il faur aller a la ligne **54** et ecrire la fonction dans la variable **x** que vous voulez utiliser.
+> Pour changer les fonctions que le programme execute, il faur aller a la ligne **61**, **68**, **75**, **82** et ecrire les fonctions dans la variable **x**.
 ---
 #### Installation.
 * pip install turtle
