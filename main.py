@@ -32,13 +32,18 @@ def grad():
 
 
 
-def afficher(absy, ordo):
-    
+def afficher(absy, ordo, c):
+    if c == 1:
+        color("red")
+    if c == 2:
+        color("green")
+    if c == 3:
+        color("blue")
+    if c == 4:
+        color("orange")
     pendown()  
-    color("red")
     goto(absy*20, ordo*20)
     pendown()
-    color('blue')
     right(-45)
     forward(5)
     forward(-10)
@@ -46,20 +51,42 @@ def afficher(absy, ordo):
     left(-90)
     forward(5)
     forward(-10)
+    forward(5)
     
 
 def fonction(x):
+    c = 1
     color("red")
     for i in range(-20, 21):
-        x = (i**2)+1
-        afficher(i, x)
+        x = (i**2)-20
+        afficher(i, x, c)
         
+def fonction2(x):
+    c = 2
+    color("red")
+    for i in range(-20, 21):
+        x = (i**2)-10
+        afficher(i, x, c)
 
+def fonction3(x):
+    c = 3
+    color("red")
+    for i in range(-20, 21):
+        x = (i**2)
+        afficher(i, x, c)
 
-    
+def fonction4(x):
+    c = 4
+    color("red")
+    for i in range(-20, 21):
+        x = (i**2)+10
+        afficher(i, x, c)    
 
 
 
 tableau()
 fonction(x)
+fonction2(x)
+fonction3(x)
+fonction4(x)
 time.sleep(40)
