@@ -1,92 +1,47 @@
 from turtle import *
-import turtle
-import time
+import math
 
 
-turtle.screensize(1500, 1500)
-x = 0
+f1 = lambda x: 150 * math.sin(x * 0.03)                
+f2 = lambda x: 100 * math.cos(x * 0.05)               
+f3 = lambda x: (x**2) / 100 - 200                      
+f4 = lambda x: 50 * math.sin(x * 0.1) + (x * 0.5)      
 
+fonctions = [f1, f2, f3, f4]
+couleurs = ["cyan", "magenta", "yellow", "white"]
 
-def tableau():
-    title("representation graphique fonction")
-    turtle.bgcolor("black")
-    color("white")
-    home()
-    turtle.speed(50)
-    angle = -90 
-    for i in range(4):
-        home()
-        right(angle)
-        for i in range(20):
-            forward(20)
-            grad()
-        angle += 90
+setup(1000, 800)
+bgcolor("black")
+speed(10) 
+shape("circle")
+turtlesize(0.7)
 
-
-def grad():
-    left(90)
-    forward(5)
-    back(10)
-    forward(5)
-    right(90)
-
-
-
-def afficher(absy, ordo, c):
-    if c == 1:
-        color("red")
-    if c == 2:
-        color("green")
-    if c == 3:
-        color("blue")
-    if c == 4:
-        color("orange")
-    pendown()  
-    goto(absy*20, ordo*20)
-    pendown()
-    right(-45)
-    forward(5)
-    forward(-10)
-    forward(5)
-    left(-90)
-    forward(5)
-    forward(-10)
-    forward(5)
+def tracer_axes():
+    color("gray")
+    width(1)
     
+    penup(); goto(-500, 0); pendown(); goto(500, 0)
+    
+    penup(); goto(0, -400); pendown(); goto(0, 400)
 
-def fonction(x):
-    c = 1
-    color("red")
-    for i in range(-20, 21):
-        x = (i**2)-20
-        afficher(i, x, c)
-        
-def fonction2(x):
-    c = 2
-    color("red")
-    for i in range(-20, 21):
-        x = (i**2)-10
-        afficher(i, x, c)
-
-def fonction3(x):
-    c = 3
-    color("red")
-    for i in range(-20, 21):
-        x = (i**2)
-        afficher(i, x, c)
-
-def fonction4(x):
-    c = 4
-    color("red")
-    for i in range(-20, 21):
-        x = (i**2)+10
-        afficher(i, x, c)    
+tracer_axes()
 
 
+for i in range(len(fonctions)):
+    f = fonctions[i]
+    color(couleurs[i])
+    width(2)
+    
+    
+    penup()
+    x_debut = -500
+    goto(x_debut, f(x_debut))
+    pendown()
+    
+    
+    for x in range(-500, 501, 5):
+        y = f(x)
+        goto(x, y)
 
-tableau()
-fonction(x)
-fonction2(x)
-fonction3(x)
-fonction4(x)
-time.sleep(40)
+hideturtle() 
+done()
